@@ -21,6 +21,9 @@ router.get('/:id', (req,res) => {
         .then(id => {
             res.status(201).json(id)
         })
+        .catch(err => {
+            res.status(500).json({error: "there was an error"})
+        })
 })
 
 
@@ -34,7 +37,7 @@ router.post('/', (req,res) => {
                 res.status(201).json({success: true})
             })
             .catch(err => {
-                res.status(500).json({success: "there was an error"})
+                res.status(500).json({error: "there was an error"})
             })
     } else {
         res.status(500).json({message: "incorrect parametser"})
